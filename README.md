@@ -1,2 +1,2 @@
-# PIE
+# PanIE
 Pangenome independent edge identification
