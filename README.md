@@ -24,14 +24,14 @@ We decompose the pangnoeme graph into biconnected components to parallel the tas
 ```bash
 # 1. step1 - decompose pangenome graph into biconnected components
 for chr in chr{1..22} chrX; do
-    python filter_redundancy_bubble_puncture.fix2.step1_subgraph.py $chr 
+    python step1_subgraph.py $chr 
 done 
 # 2. step2 - identify independent edge in each biconnected subgraph
-python filter_redundancy_bubble_puncture.fix2.step2_filter.py $chr <subgraph.gml>
+python step2_filter.py $chr <subgraph.gml>
 
 # 3. step3 (optional) - speed up independent edge identification by only check bridge edge within 50 steps 
 # a patch/compromise in case that a subgraph is too complex and it takes too long to run step2
-python filter_redundancy_bubble_puncture.fix2.step2_filter.dp50.py $chr <subgraph.gml>
+python step2_filter.dp50.py $chr <subgraph.gml>
 
 ```
 ### input 
